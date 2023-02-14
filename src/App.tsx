@@ -6,6 +6,9 @@ import Card from './components/Card';
 import CertificationsList from './components/CertificationsList';
 import ChatBubbleStart from './components/ChatBubbleStart';
 import Form from './components/Form';
+import useEffectOnce from './hooks/useEffectOnce';
+import toast, { Toaster } from 'react-hot-toast';
+import { errorToast, successToast } from './components/Toast';
 
 function App() {
     // daisyUI theme changer
@@ -15,14 +18,17 @@ function App() {
 
     const [data, setData] = useState<Certification[]>(Array());
 
-    useEffect(() => {
-        setData([
-            { id: '1', name: 'AWS Cloud Practitioner' },
-            { id: '2', name: 'AWS Developer Associate' },
-            { id: '3', name: 'AWS Solutions Architect Associate' },
-            { id: '4', name: 'AWS SysOps Administrator Associate' },
-        ]);
-    }, []);
+    useEffectOnce(() => {
+        fetch('http://localhost:5000/api/certifications')
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data.certifications);
+            })
+            .catch((err) => {
+                console.error(err);
+                errorToast('Es ist ein Fehler aufgetreten.');
+            });
+    });
 
     return (
         <div className="App h-screen flex flex-col justify-between ali">
@@ -37,10 +43,11 @@ function App() {
                     <ChatBubbleStart>
                         <p className="text-xl ">Hier kannst du deine Zertifizierungen eintragen und speichern.</p>
                     </ChatBubbleStart>
-                    <Form />
-                    <CertificationsList data={data} />
+                    <Form setData={setData} />
+                    <CertificationsList data={data} setData={setData} />
                 </div>
             </div>
+            <Toaster position="bottom-right" reverseOrder={false} />
             <Footer />
         </div>
     );
