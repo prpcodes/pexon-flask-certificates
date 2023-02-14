@@ -11,26 +11,10 @@ function App() {
         themeChange(false);
     }, []);
 
-    const [count, setCount] = useState(0);
-    const [data, setData] = useState(Object());
-
-    // useEffect(() => {
-    //     fetch('/members')
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             setData(data);
-    //             console.log(data);
-    //         });
-    // }, []);
-
-    useEffect(() => {
-        setData(['AWS Cloud Practitioner', 'AWS Developer Associate', 'AWS Solutions Architect Associate', 'AWS SysOps Administrator Associate']);
-    }, []);
-
     return (
         <div className="App h-screen flex flex-col justify-between ali">
             <Navbar />
-            <Hero data={data} />
+            <Hero />
             <Footer />
         </div>
     );
