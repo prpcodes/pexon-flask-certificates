@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from './Card';
 import CertificationsList from './CertificationsList';
 import ChatBubbleStart from './ChatBubbleStart';
+import Form from './Form';
 import List from './List';
 
 export default function Hero() {
@@ -36,14 +37,7 @@ export default function Hero() {
                 <ChatBubbleStart>
                     <p className="text-xl ">Hier kannst du deine Zertifizierungen eintragen und speichern.</p>
                 </ChatBubbleStart>
-                <Card>
-                    <form action="/members" method="POST" className="flex flex-col">
-                        <input type="text" placeholder="AWS Cloud Practitioner" className="input input-bordered input-primary w-full" />
-                        <button type="submit" className="btn btn-primary mt-4 w-max">
-                            Speichern
-                        </button>
-                    </form>
-                </Card>
+                <Form />
                 <CertificationsList {...data} />
             </div>
         </div>
