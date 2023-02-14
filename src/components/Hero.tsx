@@ -22,15 +22,16 @@ export default function Hero({ data = ['AWS Cloud Practitioner'] }: { data: stri
                         </button>
                     </form>
                 </Card>
-                <Card>
-                    <List>
-                        {Object.keys(data).length > 0 &&
-                            data.map((item: string, index: number) => {
+                {Object.keys(data).length > 0 && (
+                    <Card>
+                        <List>
+                            {data.map((item: string, index: number) => {
                                 // display json data
                                 return <li key={index}>{item}</li>;
                             })}
-                    </List>
-                </Card>
+                        </List>
+                    </Card>
+                )}
             </div>
         </div>
     );
