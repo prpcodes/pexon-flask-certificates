@@ -3,7 +3,7 @@ import { errorToast, successToast } from './Toast';
 
 export default function CertificationsList({ data, setData }: { data: Certification[]; setData: React.Dispatch<React.SetStateAction<Certification[]>> }) {
     function deleteCertification(id: string) {
-        fetch(`http://localhost:5000/api/certifications/${id}`, {
+        fetch(`http://localhost:5000/api/certification/${id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())

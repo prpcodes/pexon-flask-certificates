@@ -42,7 +42,7 @@ def get_certifications():
     return {'certifications': [dict(itertools.zip_longest(['id', 'name', 'created_at'], certification)) for certification in certifications]}, 200
 
 # Create a new certification in the database table
-@app.post('/api/certifications')
+@app.post('/api/certification')
 def create_certification():
     name = request.json.get('name')
     if not name:
@@ -60,7 +60,7 @@ def create_certification():
     return {'message': 'Certification created successfully', 'certification': dict(itertools.zip_longest(['id', 'name', 'created_at'], certification))}, 201
 
 # Delete a certification from the database table
-@app.delete('/api/certifications/<int:id>')
+@app.delete('/api/certification/<int:id>')
 def delete_certification(id):
     try:
         with connection.cursor() as cursor:

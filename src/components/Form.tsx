@@ -11,7 +11,7 @@ export default function Form({ setData }: { setData: React.Dispatch<React.SetSta
         const data = {
             name: target[0].value,
         };
-        fetch('http://localhost:5000/api/certifications', {
+        fetch('http://localhost:5000/api/certification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
