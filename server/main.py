@@ -21,9 +21,25 @@ CREATE_CERTIFICATES_TABLE = (
     "CREATE TABLE IF NOT EXISTS certificates (id SERIAL PRIMARY KEY, name VARCHAR(50) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
 )
 
-INSERT_CERTIFICATION= (
-    "INSERT INTO certificates (name) VALUES (%s);"
+INSERT_CERTIFICATION = (
+    "INSERT INTO certificates (name) VALUES (%s) RETURNING id, name, created_at;"
 )
+
+DELETE_CERTIFICATION = (
+    "DELETE FROM certificates WHERE id = %s RETURNING id, name, created_at;"
+)
+
+# Get all the certifications from the database table
+@app.get('/api/certifications')
+def get_certifications():
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM certificates;")
+            certifications = cursor.fetchall()
+            # Convert the list of tuples to a list of dictionaries
+    except Exception as e:
+        return {'message': 'An error occurred while fetching the certifications'}, 500
+    return {'certifications': [dict(itertools.zip_longest(['id', 'name', 'created_at'], certification)) for certification in certifications]}, 200
 
 # Create a new certification in the database table
 @app.post('/api/certifications')
@@ -37,31 +53,20 @@ def create_certification():
             cursor.execute(CREATE_CERTIFICATES_TABLE)
             # Insert the certification into the database table
             cursor.execute(INSERT_CERTIFICATION, (name,))
+            certification = cursor.fetchone()
         connection.commit()
     except Exception as e:
         return {'message': 'An error occurred while creating the certification'}, 500
-    return {'message': 'Certification created successfully'}, 201
+    return {'message': 'Certification created successfully', 'certification': dict(itertools.zip_longest(['id', 'name', 'created_at'], certification))}, 201
 
-# Get all the certifications from the database table
-@app.get('/api/certifications')
-def get_certifications():
-    try:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM certificates;")
-            certifications = cursor.fetchall()
-            # Convert the list of tuples to a list of dictionaries
-            certifications = [dict(itertools.zip_longest(['id', 'name', 'created_at'], certification)) for certification in certifications]
-    except Exception as e:
-        return {'message': 'An error occurred while fetching the certifications'}, 500
-    return {'certifications': certifications}, 200
-        
 # Delete a certification from the database table
 @app.delete('/api/certifications/<int:id>')
 def delete_certification(id):
     try:
         with connection.cursor() as cursor:
-            cursor.execute("DELETE FROM certificates WHERE id = %s;", (id,))
+            cursor.execute(DELETE_CERTIFICATION, (id,))
+            certification = cursor.fetchone()
         connection.commit()
     except Exception as e:
         return {'message': 'An error occurred while deleting the certification'}, 500
-    return {'message': 'Certification deleted successfully'}, 200
+    return {'message': 'Certification deleted successfully', 'certification': dict(itertools.zip_longest(['id', 'name', 'created_at'], certification))}, 200
