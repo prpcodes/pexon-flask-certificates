@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="flex flex-col items-center justify-center w-full h-24 ">
+        <div className="flex flex-col items-center justify-center w-full h-12 ">
             <p className="text-sm">
                 Created in 2023 by
                 <a href="https://github.com/prpcodes" target="_blank" rel="noreferrer" className="text-blue-500">
