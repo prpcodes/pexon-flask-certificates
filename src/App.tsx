@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { themeChange } from 'theme-change';
 import Footer from './components/Footer';
-import List from './components/List';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
 import CertificationsList from './components/CertificationsList';
@@ -14,14 +13,14 @@ function App() {
         themeChange(false);
     }, []);
 
-    const [data, setData] = useState<Certification[]>(Object());
+    const [data, setData] = useState<Certification[]>(Array());
 
     useEffect(() => {
         setData([
             { id: '1', name: 'AWS Cloud Practitioner' },
-            { id: '1', name: 'AWS Developer Associate' },
-            { id: '1', name: 'AWS Solutions Architect Associate' },
-            { id: '1', name: 'AWS SysOps Administrator Associate' },
+            { id: '2', name: 'AWS Developer Associate' },
+            { id: '3', name: 'AWS Solutions Architect Associate' },
+            { id: '4', name: 'AWS SysOps Administrator Associate' },
         ]);
     }, []);
 
@@ -39,7 +38,7 @@ function App() {
                         <p className="text-xl ">Hier kannst du deine Zertifizierungen eintragen und speichern.</p>
                     </ChatBubbleStart>
                     <Form />
-                    <CertificationsList {...data} />
+                    <CertificationsList data={data} />
                 </div>
             </div>
             <Footer />
