@@ -1,8 +1,30 @@
+import { useEffect, useState } from 'react';
 import Card from './Card';
+import CertificationsList from './CertificationsList';
 import ChatBubbleStart from './ChatBubbleStart';
 import List from './List';
 
-export default function Hero({ data = ['AWS Cloud Practitioner'] }: { data: string[] }) {
+export default function Hero() {
+    // useEffect(() => {
+    //     fetch('/members')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setData(data);
+    //             console.log(data);
+    //         });
+    // }, []);
+
+    const [data, setData] = useState<Certification[]>(Object());
+
+    useEffect(() => {
+        setData([
+            { id: '1', name: 'AWS Cloud Practitioner' },
+            { id: '1', name: 'AWS Developer Associate' },
+            { id: '1', name: 'AWS Solutions Architect Associate' },
+            { id: '1', name: 'AWS SysOps Administrator Associate' },
+        ]);
+    }, []);
+
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col items-start justify-center w-full md:max-w-md	 p-4">
@@ -22,21 +44,7 @@ export default function Hero({ data = ['AWS Cloud Practitioner'] }: { data: stri
                         </button>
                     </form>
                 </Card>
-                {Object.keys(data).length > 0 && (
-                    <Card>
-                        <List>
-                            {data.map((item: string, index: number) => {
-                                // display json data
-                                return (
-                                    <li key={index} className="flex flex-row items-center justify-between w-full p-2">
-                                        <span className="text-md">{item}</span>
-                                        <button className="btn btn-sm btn-error">X</button>
-                                    </li>
-                                );
-                            })}
-                        </List>
-                    </Card>
-                )}
+                <CertificationsList {...data} />
             </div>
         </div>
     );
