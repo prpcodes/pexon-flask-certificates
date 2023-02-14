@@ -4,7 +4,7 @@ import List from './List';
 
 export default function Hero({ data = ['AWS Cloud Practitioner'] }: { data: string[] }) {
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col items-start justify-center w-96 p-4">
                 <ChatBubbleStart>
                     <h1 className="text-3xl font-bold">
