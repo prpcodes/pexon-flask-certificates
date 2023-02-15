@@ -1,7 +1,6 @@
 # Certifications Listing - Flask & React
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/prpcodes/pexon-flask-certificates?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/prpcodes/pexon-flask-certificates?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/top/prpcodes/pexon-flask-certificates?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/last-commit/prpcodes/pexon-flask-certificates?style=for-the-badge)
 
@@ -75,10 +74,6 @@ Contributions, issues and feature requests are welcome!
 
 ## 📝 License
 
-This project is licensed under the MIT License. Enjoy!
-The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) and is used here only for educational purposes.
+This project is licensed under the MIT License.
 
-<br>
-<br>
-
-[⬆ Back to the top](#-Certifications-Listing---Flask-&-React)
+The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) <br/> and is used here only for educational purposes.
