@@ -1,7 +1,6 @@
 # Certifications Listing - Flask & React
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/prpcodes/pexon-flask-certificates?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/prpcodes/pexon-flask-certificates?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/top/prpcodes/pexon-flask-certificates?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/last-commit/prpcodes/pexon-flask-certificates?style=for-the-badge)
 
