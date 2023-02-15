@@ -62,5 +62,6 @@ Contributions, issues and feature requests are welcome!
 
 ## 📝 License
 
-This project is licensed under the MIT License. Enjoy!
-The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) and is used here only for educational purposes.
+This project is licensed under the MIT License.
+
+The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) <br/> and is used here only for educational purposes.
