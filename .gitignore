@@ -29,3 +29,6 @@ dist-ssr
 __pycache__
 .env
 .flaskenv
+
+# DB
+/db
