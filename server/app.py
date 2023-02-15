@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, request
 from flask_cors import CORS
 import itertools
+import re
 
 app = Flask(__name__)
 CORS(app)
@@ -45,7 +46,7 @@ def get_certifications():
 @app.post('/api/certification')
 def create_certification():
     name = request.json.get('name')
-    if not name:
+    if not name or not re.match(r'^[a-zA-Z0-9()/ -]+$', name):
         return {'message': 'Missing name parameter'}, 400
     try:
         with connection.cursor() as cursor:
