@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+    db:
+        container_name: pexon_certificates_db_container
+        image: postgres:latest
+        volumes:
+            - ./db/data:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: pexon_certificates
+    server:
+        container_name: pexon_certificates_flask_container
+        build:
+            context: ./server/
+            dockerfile: Dockerfile
+        volumes:
+            - ./server/:/usr/src/app/
+        ports:
+            - 5000:5000
+        environment:
+            PORT: 5000
+            FLASK_DEBUG: 1
+    client:
+        container_name: pexon_certificates_react_container
+        build:
+            context: ./client/
+            dockerfile: Dockerfile
+        volumes:
+            - ./client/:/app
+        ports:
+            - '3000:3000'
+        tty: true
+        stdin_open: true
