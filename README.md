@@ -9,6 +9,10 @@
 
 > A web app where you can list your certifications and share them with the world.
 
+### ⚠️ Disclaimer
+
+This project is an interview challenge for [Pexon Consulting](https://pexon-consulting.de/).
+
 ### 🛠 Technologies
 
 The following tools were used in the construction of the project:
@@ -59,7 +63,7 @@ Contributions, issues and feature requests are welcome!
 ## 📝 License
 
 This project is licensed under the MIT License. Enjoy!
-The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/).
+The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) and is used here only for educational purposes.
 
 <br>
 <br>
