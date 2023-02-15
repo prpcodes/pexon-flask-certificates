@@ -48,13 +48,18 @@ $ git clone https://github.com/prpcodes/pexon-flask-certificates.git
 $ cd pexon-flask-certificates
 ```
 
-2.  Use Docker to run the project:
+2. Set up the environment variables:
+
+````bash
+$ cp .env.example .env # .env.local works too!
+
+3.  Use Docker to run the project:
 
 ```bash
 $ docker-compose up
-```
+````
 
-3. Access the website at http://localhost:3000
+4. Access the website at http://localhost:3000
 
 ## 🤝 Contributing
 
