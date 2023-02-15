@@ -48,18 +48,26 @@ $ git clone https://github.com/prpcodes/pexon-flask-certificates.git
 $ cd pexon-flask-certificates
 ```
 
-2. Set up the environment variables:
-
-````bash
-$ cp .env.example .env # .env.local works too!
-
-3.  Use Docker to run the project:
+2. Install the client dependencies:
 
 ```bash
-$ docker-compose up
-````
+$ cd client
+$ npm install
+```
 
-4. Access the website at http://localhost:3000
+3. Set up the environment variables:
+
+```bash
+$ cp .env.example .env
+```
+
+4.  Use Docker to run the project:
+
+```bash
+$ npm run docker:dev
+```
+
+5. Access the website at http://localhost:3000
 
 ## 🤝 Contributing
 
