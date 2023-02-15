@@ -31,11 +31,11 @@ The following tools were used in the construction of the project:
 
 ##### Testing:
 
--   [Vitest]()
+-   [Vitest](https://vitest.dev/)
 
 ##### Database:
 
--   [Railway (Postgress)](https://railway.app/)
+-   [Postgres](https://hub.docker.com/_/postgres)
 
 ## 💻 Getting started
 
