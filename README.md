@@ -64,8 +64,3 @@ Contributions, issues and feature requests are welcome!
 
 This project is licensed under the MIT License. Enjoy!
 The Pexon name is a trademark of [Pexon Consulting GmbH](https://pexon-consulting.de/) and is used here only for educational purposes.
-
-<br>
-<br>
-
-[⬆ Back to the top](#-Certifications-Listing---Flask-&-React)
