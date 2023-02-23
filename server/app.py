@@ -14,7 +14,7 @@ load_dotenv()
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Connect to the database
-connection = psycopg2.connect(DATABASE_URL, sslmode='require')
+connection = psycopg2.connect(DATABASE_URL)
 
 
 # Create the tables in the database if they don't exist
